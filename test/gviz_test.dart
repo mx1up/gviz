@@ -91,4 +91,15 @@ beans" -> "'quotes'";
 }
 ''');
   });
+
+  test('edge existence', () {
+    final graph = Gviz()
+      ..addNode('one')
+      ..addNode('two');
+
+    expect(graph.edgeExists('one', 'two'), false);
+    graph.addEdge('one', 'two');
+    expect(graph.edgeExists('one', 'two'), true);
+
+  });
 }

@@ -46,6 +46,9 @@ class Gviz {
     _items.add(_Node(name, properties));
   }
 
+  bool edgeExists(String from, String to) =>
+    _items.whereType<_Edge>().any((item) => item.from == from && item.to == to);
+
   void addEdge(String from, String to, {Map<String, String>? properties}) {
     _items.add(_Edge(from, to, properties));
   }
